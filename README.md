@@ -15,7 +15,7 @@
   <!-- the games -->
   <h3>The Games</h3>
   <ol>
-    <li><a href="[url](https://store.steampowered.com/app/814380/Sekiro_Shadows_Die_Twice__GOTY_Edition/)">link textSekiro: Shadows Die Twice</a></li>
+    <li><a href="https://store.steampowered.com/app/814380/Sekiro_Shadows_Die_Twice__GOTY_Edition/" target="_blank">Sekiro: Shadows Die Twice</a></li>
     <li>Abiotic Factor</li>
     <li>Baldur's Gate III</li>
     <li>Return of the Obra Dinn</li>
