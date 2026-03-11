@@ -16,10 +16,10 @@
   <h3>The Games</h3>
   <ol>
     <li><a href="https://store.steampowered.com/app/814380/Sekiro_Shadows_Die_Twice__GOTY_Edition/" target="_blank">Sekiro: Shadows Die Twice</a></li>
-    <li>Abiotic Factor</li>
-    <li>Baldur's Gate III</li>
-    <li>Return of the Obra Dinn</li>
-    <li>Terraria</li>
+    <li><a href="https://store.steampowered.com/app/427410/Abiotic_Factor/" target="_blank">Abiotic Factor</a></li>
+    <li><a href="https://store.steampowered.com/app/1086940/Baldurs_Gate_3/" target="_blank">Baldur's Gate III</a></li>
+    <li><a href="https://store.steampowered.com/app/653530/Return_of_the_Obra_Dinn/" target="_blank">Return of the Obra Dinn</a></li>
+    <li><a href="https://store.steampowered.com/app/105600/Terraria/" target="_blank">Terraria</a></li>
   </ol>
   <!-- Reasoning -->
   <h3>Reasoning</h3>
