@@ -1,12 +1,11 @@
-<!DOCTYPE html>
 <html>
 <head>
-  <title>Noah's Page</title>
+  <title>Noah's Page!</title>
 </head>
 <body>
 
-<h1>This is a heading</h1>
-<p>This is a paragraph.</p>
+<h1>Noah's Page!</h1>
+<img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600">
 
 </body>
 </html>
