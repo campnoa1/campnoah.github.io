@@ -48,7 +48,7 @@
       color: #1a1420;
     }
 
-     .home-icon {
+.home-icon {
       width: 52px;
       height: 52px;
       background-color: #b3a6c4;
@@ -64,12 +64,15 @@
       appearance: none;
       -webkit-appearance: none;
       font: inherit;
-      padding: 0;
+      padding: 6px;
+      overflow: hidden;
     }
-    .home-icon svg {
-      width: 28px;
-      height: 28px;
-      fill: #1a1420;
+    
+    .home-icon-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     /* Bio section */
@@ -255,9 +258,7 @@
     <!-- Bio -->
     <section class="bio-section">
       <div class="profile-photo">
-        <div class="profile-photo-placeholder">
-          <br><br><img src="noah_pfp.jpg" alt="That's me!">
-        </div>
+        <img src="noah_pfp.jpg" alt="That's me!">
       </div>
 
       <div class="bio-cards">
