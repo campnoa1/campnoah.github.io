@@ -1,34 +1,85 @@
 <html>
 <head>
   <title>Noah's Page!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1 class="head">Noah's Page!</h1>
-  <img src="noah_pfp.jpg" alt="This is me!" width="506" height="675">
-  <p><small>This image is of me when I went to a trip to South Korea.</small></p>
-  <!-- bio -->
-  <h2>Bio</h2>
-  <p>I am a student of Michigan State University(MSU) studying how to become a modeler and animator so that onde day I can be a part of the game making process. I've always both admired and loved games since I can remember. This would explain why I want to be a part of this process.</p>
-  <!-- special topic -->
-  <h2>My Favorite Video Games OAT</h2>
-  <p>To start, <b>THIS IS MY OPNINION</b> (LOL)! I'm sure my favorite games will change in the future as I constantly seem to have different favorites based on how recently I played each. That said, I do not neccessarily have much nostalgia when it comes to games. This is because I know that newer games tend to iterate upon past games. An example of this is Palworld having the Pokemon mechanics while also introducing a plethora of modern game mechanics. But, with that said, some games from the past really are great or have some things that grealty set them apart from other games. This would be something like Plants vs Zombies having a near perfect formula while also having a very hard time replicating what makes it so great without making a new game and it bringing in new concepts that ruin the game.</p>
-  <!-- the games -->
-  <h3>The Games</h3>
-  <ol>
-    <li><a href="https://store.steampowered.com/app/814380/Sekiro_Shadows_Die_Twice__GOTY_Edition/" target="_blank">Sekiro: Shadows Die Twice</a></li>
-    <li><a href="https://store.steampowered.com/app/427410/Abiotic_Factor/" target="_blank">Abiotic Factor</a></li>
-    <li><a href="https://store.steampowered.com/app/1086940/Baldurs_Gate_3/" target="_blank">Baldur's Gate III</a></li>
-    <li><a href="https://store.steampowered.com/app/653530/Return_of_the_Obra_Dinn/" target="_blank">Return of the Obra Dinn</a></li>
-    <li><a href="https://store.steampowered.com/app/105600/Terraria/" target="_blank">Terraria</a></li>
-  </ol>
-  <!-- Reasoning -->
-  <h3>Reasoning</h3>
-  <p>Let's start at the bottom, number <strong>five</strong>. Terraria is a very fun game about discovering a newly generated world and fighting tough enemies and bosses. Terraria released years ago back in 2011 which has continuously stayed relevant and has been updated over the years with each update bringing large content updates spicing up the game to a pretty decent degree. It is a very easily replayable game and is fun for both sanbox builders and pve focused players. Terraria also is kepy alive with its modding community providing insane amounts of new and refreshing content to the game sometimes making the game feel entirely different from its original make.</p>
-  <p>At <strong>four</strong> is Return of the Obra Dinn. This game was created by the same developer(s?) of Papers Please which is pretty obvious when comparing their art styles. Return of the Obra Dinn is a detective game where the player must figure out what happened to a ship (the Obra Dinn) returning to port with its crew missing. The tasks of the player are to find missing key information about each character and how they went missing. Return of the Obra Dinn is at number four for being so unique and having such a fun and interesting story.</p>
-  <p>Number <strong>three</strong> is Baldur's Gate III. Baldur's Gate III is a continued story of Baldur's Gate where the player is in an alien ship then later going on an adventure to save the world in a D&D type of playstyle. This game is without question in my top five and will probably remain their for many years. It was fun the first time and will continue to be afterword.</p>
-  <p>At <strong>two</strong> is lesser known game called Abiotic Factor. Abiotic Factor is a Half Life and SCP inspired game that takes on a sandbox genre. The player is tasked with trying to escape the facility that is falling apart while trying to figure out why it is happening at all. Now, SCP hass some of my favorite internet stories as well as it iterating upon Half Life... why wouldn't I love this game! I have spent so much time playing this game and still do playing each new update. My friends and I have had multiple play sessions of this game (which never happens with a game for us). ALthough, I have heard that Abtiotic Factor has literally ruined friendships... Play at your own risk.</p>
-  <p>And lastly at <strong>one</strong> is Sekiro: Shadows Die Twice. Ever since I played this I knew it would be my favorite. In this game you play as Sekiro, a shinobi, attempting to save his Lord, Kuro, in any way that he can. But before that he must get to his Lord and then find the path to saving him. I love this game so much. It is a yearly play for me. I hardly have any gripes with this game. I just love the world, the characters, the enemies, and the soundtrack (although pretty nonexistant for a From Software game). This game is so much fun each time and it even got a boss rush gamemode that was added a few years ago to allow players to fight all the bosses consecutively. I hardly believe that any game will beat this game on my list. I do forsee a future where Abiotic Factor does beat Sekiro, though.</p>
-  <div class="box"></div>
+  <div class="page-wrapper">
+ 
+    <!-- Header -->
+    <header class="site-header">
+      <h1>Noah's Page</h1>
+      <div class="home-icon" title="Home">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+      </div>
+    </header>
+ 
+    <!-- Bio + Photo -->
+    <section class="bio-section">
+      <div class="profile-photo">
+        <!-- Replace the src below with your actual photo path -->
+        <div class="profile-photo-placeholder">
+          [ Profile Photo ]<br><br>Replace with &lt;img&gt; tag
+        </div>
+      </div>
+ 
+      <div class="bio-cards">
+        <!-- Bio card -->
+        <div class="card">
+          <h2>Bio</h2>
+          <p>I am a student of Michigan State University(MSU) studying how to become a modeler and animator so that one day I can be a part of the game making process. I've always both admired and loved games since I can remember. This would explain why I want to be a part of this process.</p>
+        </div>
+ 
+        <!-- Favorite Games opinion card -->
+        <div class="card card-blue">
+          <h2>My Favorite Video Games OAT</h2>
+          <p>To start, THIS IS MY OPNINION (LOL)! I'm sure my favorite games will change in the future as I constantly seem to have different favorites based on how recently I played each. That said, I do not neccessarily have much nostalgia when it comes to games. This is because I know that newer games tend to iterate upon past games. An example of this is Palworld having the Pokemon mechanics while also introducing a plethora of modern game mechanics. But, with that said, some games from the past really are great or have some things that grealty set them apart from other games. This would be something like Plants vs Zombies having a near perfect formula while also having a very hard time replicating what makes it so great without making a new game and it bringing in new concepts that ruin the game.</p>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- Games section -->
+    <div class="games-heading">
+      <h2>The Games</h2>
+    </div>
+ 
+    <div class="games-card">
+ 
+      <div class="game-entry">
+        <div class="game-title">5. Terraria</div>
+        <p class="game-desc">Let's start at the bottom, number five. Terraria is a very fun game about discovering a newly generated world and fighting tough enemies and bosses. Terraria released years ago back in 2011 which has continuously stayed relevant and has been updated over the years with each update bringing large content updates spicing up the game to a pretty decent degree. It is a very easily repayable game and is fun for both sandbox builders and pve focused players. Terraria also is kept alive with its modding community providing insane amounts of new and refreshing content to the game sometimes making the game feel entirely different from its original make.</p>
+      </div>
+ 
+      <div class="game-entry">
+        <div class="game-title">4. Return of the Obra Dinn</div>
+        <p class="game-desc">At four is Return of the Obra Dinn. This game was created by the same developer(s?) of Papers Please which is pretty obvious when comparing their art styles. Return of the Obra Dinn is a detective game where the player must figure out what happened to a ship (the Obra Dinn) returning to port with its crew missing. The tasks of the player are to find missing key information about each character and how they went missing. Return of the Obra Dinn is at number four for being so unique and having such a fun and interesting story.</p>
+      </div>
+ 
+      <div class="game-entry">
+        <div class="game-title">3. Baldur's Gate III</div>
+        <p class="game-desc">Number three is Baldur's Gate III. Baldur's Gate III is a continued story of Baldur's Gate where the player is in an alien ship then later going on an adventure to save the world in a D&D type of play style. This game is without question in my top five and will probably remain their for many years. It was fun the first time and will continue to be afterword.</p>
+      </div>
+ 
+      <div class="game-entry">
+        <div class="game-title">2. Abiotic Factor</div>
+        <p class="game-desc">At two is lesser known game called Abiotic Factor. Abiotic Factor is a Half Life and SCP inspired game that takes on a sandbox genre. The player is tasked with trying to escape the facility that is falling apart while trying to figure out why it is happening at all. Now, SCP has some of my favorite internet stories as well as it iterating upon Half Life... why wouldn't I love this game! I have spent so much time playing this game and still do playing each new update. My friends and I have had multiple play sessions of this game (which never happens with a game for us). Although, I have heard that Abiotic Factor has literally ruined friendships... Play at your own risk.</p>
+      </div>
+ 
+      <div class="game-entry">
+        <div class="game-title">1. Sekiro: Shadows Die Twice</div>
+        <p class="game-desc">And lastly at one is Sekiro: Shadows Die Twice. Ever since I played this I knew it would be my favorite. In this game you play as Sekiro, a shinobi, attempting to save his Lord, Kuro, in any way that he can. But before that he must go to his Lord and then find the path to saving him. I love this game so much. It is a yearly play for me. I hardly have any gripes with this game. I just love the world, the characters, the enemies, and the soundtrack (although nothing revolutionary for a From Software game). This game is so much fun each time and it even got a boss rush gamemode that was added a few years ago to allow players to fight all the bosses consecutively. I hardly believe that any game will beat this game on my list. I do forsee a future where Abiotic Factor does beat Sekiro, though.</p>
+      </div>
+ 
+    </div>
+ 
+    <!-- Footer -->
+    <footer class="site-footer">
+      <a href="#">Links</a>
+    </footer>
+ 
+  </div>
 </body>
 </html>
