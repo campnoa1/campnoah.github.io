@@ -138,13 +138,6 @@
       color: var(--text-body);
     }
  
-    /* The blue-tinted "favorite games" card */
-    .card-blue {
-      background: var(--card-blue);
-      border-color: #5a7a9c;
-      box-shadow: 4px 4px 0px #5a7a9c;
-    }
- 
     /* ── Games heading badge ── */
     .games-heading {
       background: var(--card-light);
