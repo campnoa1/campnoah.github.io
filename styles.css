@@ -5,3 +5,11 @@
 body {
   color: #323232;
 }
+
+box {
+  height: 100px;
+  width: 100px;
+  padding: 20px;
+  margin: 50px;
+  border: 1-px solid black;
+}
