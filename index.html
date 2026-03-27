@@ -48,7 +48,7 @@
       color: #1a1420;
     }
 
-    .home-icon {
+     .home-icon {
       width: 52px;
       height: 52px;
       background-color: #b3a6c4;
@@ -61,8 +61,11 @@
       cursor: pointer;
       flex-shrink: 0;
       text-decoration: none;
+      appearance: none;
+      -webkit-appearance: none;
+      font: inherit;
+      padding: 0;
     }
-
     .home-icon svg {
       width: 28px;
       height: 28px;
@@ -245,9 +248,7 @@
     <header class="site-header">
       <h1>Noah's Page</h1>
     <button class="home-icon" onclick="" title="Home">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <img src="home_icon.png" alt="Home">
-        </svg>
+        <img src="home-icon.png" alt="Home" class="home-icon-img" />
       </button>
     </header>
 
