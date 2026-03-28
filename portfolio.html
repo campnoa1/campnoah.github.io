@@ -1,5 +1,5 @@
 <head>
-  <title>Noah's Portfolio</title>
+  <title>Noah's Page</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
@@ -126,9 +126,7 @@
       line-height: 1.7;
     }
 
-    /* ── PORTFOLIO LAYOUT ── */
 
-    /* Top section: photo + (About + Skills) */
     .portfolio-top {
       display: flex;
       gap: 18px;
@@ -136,7 +134,6 @@
       align-items: flex-start;
     }
 
-    /* Profile photo */
     .profile-photo {
       flex: 0 0 280px;
       width: 280px;
@@ -168,7 +165,6 @@
       padding: 12px;
     }
 
-    /* Right column: About + Skills stacked */
     .portfolio-right {
       flex: 1;
       display: flex;
@@ -254,7 +250,6 @@
       color: #1a1420;
     }
 
-    /* Projects grid: 2 columns */
     .projects-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -281,7 +276,7 @@
       overflow: hidden;
     }
 
-    .project-image iframe {
+    .project-image video {
       position: absolute;
       top: 0;
       left: 0;
@@ -289,6 +284,7 @@
       height: 100%;
       border: none;
       display: block;
+      object-fit: cover;
     }
 
     .project-image img {
@@ -406,7 +402,6 @@
         </a>
       </header>
 
-      <!-- Top: Photo + Portfolio Title + About + Skills -->
       <section class="portfolio-top">
 
         <div class="profile-photo">
@@ -450,7 +445,7 @@
 
         <div class="project-card">
           <div class="project-image">
-            <iframe src="https://www.youtube.com/watch?v=4Te5-pbH95M" allowfullscreen></iframe>
+            <video src="Crane Simulation.mp4" controls></video>
           </div>
           <div class="project-body">
             <div class="project-title">Crane Simulation</div>
@@ -464,7 +459,7 @@
 
         <div class="project-card">
           <div class="project-image">
-            <iframe src="https://www.youtube.com/watch?v=JN5EXVheQVo" allowfullscreen></iframe>
+            <video src="Minecart Mayhem.mp4" controls></video>
           </div>
           <div class="project-body">
             <div class="project-title">Minecart Mayhem</div>
@@ -478,7 +473,7 @@
 
         <div class="project-card">
           <div class="project-image">
-            <iframe src="https://drive.google.com/file/d/1WK6Dw4OtuBGMpjjwOcTu73yZRBK4dfEh/view?usp=sharing" allowfullscreen></iframe>
+            <video src="ODS comp.mp4" controls></video>
           </div>
           <div class="project-body">
             <div class="project-title">Occult Defense System</div>
@@ -492,8 +487,6 @@
 
         <div class="project-card">
           <div class="project-image project-image-placeholder">
-            <!-- To embed a video, replace this div's contents with:
-                 <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe> -->
           </div>
           <div class="project-body">
             <div class="project-title">Coming Soon...</div>
