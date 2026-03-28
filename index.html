@@ -1,365 +1,314 @@
 <head>
   <title>Noah's Page</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      background-color: #7a6e8c;
-    }
-
     body {
+      margin: 0;
+      padding: 22px 18px 36px;
+      background: #7a6e8c;
       font-family: 'Merriweather', Georgia, serif;
       color: #1e1828;
-      min-height: 100vh;
-      padding: 24px 20px 40px;
     }
 
-    /* ── Outer wrapper: centers content ── */
-    .outer-wrapper {
+    .main-wrap {
       max-width: 860px;
-      margin: 0 auto;
+      margin: auto;
       position: relative;
     }
 
-    /*
-      Side border panels: fixed to the viewport, each fills the gap
-      between the screen edge and the content column.
-      The content column is max 860px centered, so each side panel
-      spans from the viewport edge to calc(50% - 430px).
-    */
-    .border-panel {
+    .side-bar {
       position: fixed;
       top: 0;
       bottom: 0;
-      background-color: #5c5070;
-      display: none; /* hidden until there is actual gap space */
-      z-index: 0;
+      width: 60px;
+      background: #5c5070;
+      display: none;
     }
 
-    .border-panel-left {
-      left: 0;
-      right: calc(50% + 430px - 20px + 10px); /* 10px gap before content */
+    .side-left { left: 0; }
+    .side-right { right: 0; }
+
+    @media (min-width: 1000px) {
+      .side-bar { display: block; }
     }
 
-    .border-panel-right {
-      right: 0;
-      left: calc(50% + 430px - 20px + 10px); /* 10px gap before content */
-    }
-
-    /* Only show when viewport is wide enough that panels have real width */
-    @media (min-width: 940px) {
-      .border-panel { display: block; }
-    }
-
-    /* ── Inner page wrapper ── */
-    .page-wrapper {
+    .content {
       max-width: 820px;
-      width: 100%;
-      margin: 0 auto;
-      overflow-x: hidden;
+      margin: auto;
     }
 
-    /* Header */
-    .site-header {
-      background-color: #b3a6c4;
-      border: 2.5px solid #5c5070;
-      border-radius: 18px;
-      box-shadow: 4px 4px 0px #5c5070;
+    /* HEADER */
+    .top-bar {
+      background: #b3a6c4;
+      border: 2px solid #5c5070;
+      border-radius: 16px;
+      box-shadow: 3px 3px 0 #5c5070;
+
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 6px 26px;
-      margin-bottom: 22px;
-    }
-
-    .site-header h1 {
-      font-family: 'Inknut Antiqua', 'Palatino Linotype', Georgia, serif;
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
-      font-weight: 700;
-      color: #1a1420;
-    }
-
-    .home-icon {
-      width: 52px;
-      height: 52px;
-      background-color: #b3a6c4;
-      border: 2.5px solid #5c5070;
-      border-radius: 12px;
-      box-shadow: 4px 4px 0px #5c5070;
-      display: flex;
       align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      flex-shrink: 0;
-      text-decoration: none;
-      appearance: none;
-      -webkit-appearance: none;
-      font: inherit;
-      padding: 6px;
-      overflow: hidden;
-    }
 
-    .home-icon-img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    /* Bio section */
-    .bio-section {
-      display: flex;
-      gap: 18px;
-      margin-bottom: 18px;
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
-
-    .profile-photo {
-      flex: 0 1 220px;
-      width: 100%;
-      max-width: 220px;
-      aspect-ratio: 220 / 300;
-      background-color: #b3a6c4;
-      border: 2.5px solid #5c5070;
-      border-radius: 18px;
-      box-shadow: 4px 4px 0px #5c5070;
-      overflow: hidden;
-    }
-
-    .profile-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .profile-photo-placeholder {
-      width: 100%;
-      height: 100%;
-      background-color: #a899bc;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #5c5070;
-      font-size: 0.75rem;
-      text-align: center;
-      padding: 12px;
-    }
-
-    .bio-cards {
-      flex: 1 1 200px;
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    /* Cards */
-    .card {
-      background-color: #b3a6c4;
-      border: 2.5px solid #5c5070;
-      border-radius: 18px;
-      box-shadow: 4px 4px 0px #5c5070;
-      padding: 18px 20px;
-    }
-
-    .card h2 {
-      font-family: 'Inknut Antiqua', 'Palatino Linotype', Georgia, serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: #1a1420;
-    }
-
-    .card p {
-      font-size: 0.82rem;
-      line-height: 1.7;
-    }
-
-    /* Games heading */
-    .games-heading {
-      background-color: #b3a6c4;
-      border: 2.5px solid #5c5070;
-      border-radius: 12px;
-      box-shadow: 4px 4px 0px #5c5070;
-      display: inline-block;
-      padding: 10px 20px;
-      margin-bottom: 14px;
-    }
-
-    .games-heading h2 {
-      font-family: 'Inknut Antiqua', 'Palatino Linotype', Georgia, serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #1a1420;
-    }
-
-    /* Games list card */
-    .games-card {
-      background-color: #9d8faf;
-      border: 2.5px solid #5c5070;
-      border-radius: 18px;
-      box-shadow: 4px 4px 0px #5c5070;
-      padding: 22px 26px;
-    }
-
-    .game-entry {
+      padding: 8px 22px;
       margin-bottom: 20px;
     }
 
-    .game-entry:last-child {
-      margin-bottom: 0;
+    .top-bar h1 {
+      font-family: 'Inknut Antiqua', serif;
+      font-size: 2rem;
+      margin: 0;
     }
 
-    .game-title {
+    .home-btn {
+      width: 50px;
+      height: 50px;
+      padding: 6px;
+
+      border: 2px solid #5c5070;
+      border-radius: 10px;
+      background: #b3a6c4;
+      box-shadow: 3px 3px 0 #5c5070;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .home-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* BIO */
+    .bio-area {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .pfp-box {
+      max-width: 220px;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+
+      border: 2px solid #5c5070;
+      border-radius: 16px;
+      box-shadow: 3px 3px 0 #5c5070;
+
+      overflow: hidden;
+    }
+
+    .pfp-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+
+    .bio-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .info-box {
+      background: #b3a6c4;
+      border: 2px solid #5c5070;
+      border-radius: 16px;
+      box-shadow: 3px 3px 0 #5c5070;
+      padding: 16px 18px;
+    }
+
+    .info-box h2 {
+      font-family: 'Inknut Antiqua', serif;
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+
+    .info-box p {
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    /* GAMSE  */
+    .games-title {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 8px 18px;
+
+      background: #b3a6c4;
+      border: 2px solid #5c5070;
+      border-radius: 10px;
+      box-shadow: 3px 3px 0 #5c5070;
+    }
+
+    .games-title h2 {
+      margin: 0;
+      font-family: 'Inknut Antiqua', serif;
+      font-size: 1.25rem;
+    }
+
+
+    .games-list {
+      background: #9d8faf;
+      border: 2px solid #5c5070;
+      border-radius: 16px;
+      box-shadow: 3px 3px 0 #5c5070;
+      padding: 20px 22px;
+    }
+
+    .game-item {
+      margin-bottom: 18px;
+    }
+
+    .game-name {
+      font-weight: bold;
       font-size: 0.9rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: #1a1420;
+      margin-bottom: 4px;
     }
 
-    .game-desc {
+    .game-text {
       font-size: 0.8rem;
-      line-height: 1.7;
-      text-indent: 2em;
+      line-height: 1.6;
+      text-indent: 1.5em;
     }
 
-    /* Footer */
-    .site-footer {
-      background-color: #9d8faf;
-      border: 2.5px solid #5c5070;
-      border-radius: 18px;
-      box-shadow: 4px 4px 0px #5c5070;
+    /*  FOOTER */
+    .bottom-bar {
+      margin-top: 20px;
+      padding: 8px;
+
+      background: #9d8faf;
+      border: 2px solid #5c5070;
+      border-radius: 16px;
+      box-shadow: 3px 3px 0 #5c5070;
+
       text-align: center;
-      padding: 5px 14px;
-      margin-top: 22px;
     }
 
-    .site-footer a {
-      font-family: 'Inknut Antiqua', 'Palatino Linotype', Georgia, serif;
-      font-size: 1rem;
-      color: #1a1420;
+    .bottom-bar a {
       text-decoration: none;
+      font-family: 'Inknut Antiqua', serif;
+      color: #1a1420;
     }
 
-    .site-footer a:hover {
+    .bottom-bar a:hover {
       text-decoration: underline;
     }
 
-    /* Responsive */
     @media (max-width: 620px) {
-      .bio-section {
+      .bio-area {
         flex-direction: column;
         align-items: center;
       }
 
-      .profile-photo {
+      .pfp-box {
         max-width: 100%;
-        width: 100%;
         aspect-ratio: 4 / 3;
       }
 
-      .bio-cards {
-        width: 100%;
+      .top-bar h1 {
+        font-size: 1.5rem;
       }
 
-      .site-header h1 {
-        font-size: 1.4rem;
-      }
-
-      .home-icon {
+      .home-btn {
         width: 42px;
         height: 42px;
       }
     }
+
   </style>
 </head>
+
 <body>
 
-  <!-- Outer wrapper with the two side border strips -->
-  <div class="outer-wrapper">
-  <!-- Fixed side border panels (screen edge → content edge) -->
-  <div class="border-panel border-panel-left"></div>
-  <div class="border-panel border-panel-right"></div>
+<div class="main-wrap">
 
-    <div class="page-wrapper">
+  <div class="side-bar side-left"></div>
+  <div class="side-bar side-right"></div>
 
-      <!-- Header -->
-      <header class="site-header">
-        <h1>Noah's Page</h1>
-        <a href="https://campnoa1.github.io/campnoah.github.io/" class="home-icon" title="Home">
-          <img src="home_icon.png" alt="Home" class="home-icon-img">
-        </a>
-      </header>
+  <div class="content">
 
-      <!-- Bio -->
-      <section class="bio-section">
-        <div class="profile-photo">
-          <img src="noah_pfp.jpg" alt="That's me!">
-        </div>
+    <header class="top-bar">
+      <h1>Noah's Page</h1>
 
-        <div class="bio-cards">
-          <div class="card">
-            <h2>Bio</h2>
-            <p>I am a student of Michigan State University(MSU) studying how to become a modeler and animator so that one day I can be a part of the game making process. I've always both admired and loved games since I can remember. This would explain why I want to be a part of this process.</p>
-          </div>
+      <a href="https://campnoa1.github.io/campnoah.github.io/" class="home-btn">
+        <img src="home_icon.png" alt="Home">
+      </a>
+    </header>
 
-          <div class="card">
-            <h2>My Favorite Video Games OAT</h2>
-            <p>To start, THIS IS MY OPNINION (LOL)! I'm sure my favorite games will change in the future as I constantly seem to have different favorites based on how recently I played each. That said, I do not neccessarily have much nostalgia when it comes to games. This is because I know that newer games tend to iterate upon past games. An example of this is Palworld having the Pokemon mechanics while also introducing a plethora of modern game mechanics. But, with that said, some games from the past really are great or have some things that grealty set them apart from other games. This would be something like Plants vs Zombies having a near perfect formula while also having a very hard time replicating what makes it so great without making a new game and it bringing in new concepts that ruin the game.</p>
-          </div>
-        </div>
-      </section>
+    <section class="bio-area">
 
-      <!-- Games section -->
-      <div class="games-heading">
-        <h2>The Games</h2>
+
+      <div class="pfp-box">
+        <img src="noah_pfp.jpg" alt="That's me!">
       </div>
 
-      <div class="games-card">
+      <div class="bio-text">
 
-        <div class="game-entry">
-          <div class="game-title">5. Terraria</div>
-          <p class="game-desc">Let's start at the bottom, number five. Terraria is a very fun game about discovering a newly generated world and fighting tough enemies and bosses. Terraria released years ago back in 2011 which has continuously stayed relevant and has been updated over the years with each update bringing large content updates spicing up the game to a pretty decent degree. It is a very easily repayable game and is fun for both sandbox builders and pve focused players. Terraria also is kept alive with its modding community providing insane amounts of new and refreshing content to the game sometimes making the game feel entirely different from its original make.</p>
+        <div class="info-box">
+          <h2>Bio</h2>
+          <p>
+            I’m a student at Michigan State University studying modeling and animation. I’ve always liked games and want to be part of making them someday.
+          </p>
         </div>
 
-        <div class="game-entry">
-          <div class="game-title">4. Return of the Obra Dinn</div>
-          <p class="game-desc">At four is Return of the Obra Dinn. This game was created by the same developer(s?) of Papers Please which is pretty obvious when comparing their art styles. Return of the Obra Dinn is a detective game where the player must figure out what happened to a ship (the Obra Dinn) returning to port with its crew missing. The tasks of the player are to find missing key information about each character and how they went missing. Return of the Obra Dinn is at number four for being so unique and having such a fun and interesting story.</p>
-        </div>
-
-        <div class="game-entry">
-          <div class="game-title">3. Baldur's Gate III</div>
-          <p class="game-desc">Number three is Baldur's Gate III. Baldur's Gate III is a continued story of Baldur's Gate where the player is in an alien ship then later going on an adventure to save the world in a D&D type of play style. This game is without question in my top five and will probably remain their for many years. It was fun the first time and will continue to be afterword.</p>
-        </div>
-
-        <div class="game-entry">
-          <div class="game-title">2. Abiotic Factor</div>
-          <p class="game-desc">At two is lesser known game called Abiotic Factor. Abiotic Factor is a Half Life and SCP inspired game that takes on a sandbox genre. The player is tasked with trying to escape the facility that is falling apart while trying to figure out why it is happening at all. Now, SCP has some of my favorite internet stories as well as it iterating upon Half Life... why wouldn't I love this game! I have spent so much time playing this game and still do playing each new update. My friends and I have had multiple play sessions of this game (which never happens with a game for us). Although, I have heard that Abiotic Factor has literally ruined friendships... Play at your own risk.</p>
-        </div>
-
-        <div class="game-entry">
-          <div class="game-title">1. Sekiro: Shadows Die Twice</div>
-          <p class="game-desc">And lastly at one is Sekiro: Shadows Die Twice. Ever since I played this I knew it would be my favorite. In this game you play as Sekiro, a shinobi, attempting to save his Lord, Kuro, in any way that he can. But before that he must go to his Lord and then find the path to saving him. I love this game so much. It is a yearly play for me. I hardly have any gripes with this game. I just love the world, the characters, the enemies, and the soundtrack (although nothing revolutionary for a From Software game). This game is so much fun each time and it even got a boss rush gamemode that was added a few years ago to allow players to fight all the bosses consecutively. I hardly believe that any game will beat this game on my list. I do forsee a future where Abiotic Factor does beat Sekiro, though.</p>
+        <div class="info-box">
+          <h2>Favorite Games</h2>
+          <p>
+            This is just my opinion (lol). My favorites change a lot depending on what I’ve played recently, but some games really stand out more than others.
+          </p>
         </div>
 
       </div>
 
-      <!-- Footer -->
-      <footer class="site-footer">
-        <a href="#">Links</a>
-      </footer>
+    </section>
 
-    </div><!-- /.page-wrapper -->
-  </div><!-- /.outer-wrapper -->
+    <div class="games-title">
+      <h2>The Games</h2>
+    </div>
+
+    <div class="games-list">
+
+      <div class="game-item">
+        <div class="game-name">5. Terraria</div>
+        <p class="game-text">Fun sandbox game with lots of bosses and replayability.</p>
+      </div>
+
+      <div class="game-item">
+        <div class="game-name">4. Return of the Obra Dinn</div>
+        <p class="game-text">Detective-style game where you figure out what happened to a missing crew.</p>
+      </div>
+
+      <div class="game-item">
+        <div class="game-name">3. Baldur's Gate III</div>
+        <p class="game-text">Great RPG with tons of choices and replay value.</p>
+      </div>
+
+      <div class="game-item">
+        <div class="game-name">2. Abiotic Factor</div>
+        <p class="game-text">Sandbox survival game inspired by Half-Life and SCP.</p>
+      </div>
+
+      <div class="game-item">
+        <div class="game-name">1. Sekiro</div>
+        <p class="game-text">My favorite game — I replay it pretty often.</p>
+      </div>
+
+    </div>
+
+    <footer class="bottom-bar">
+      <a href="#">Links</a>
+    </footer>
+
+  </div>
+</div>
 
 </body>
 </html>
