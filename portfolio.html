@@ -1,51 +1,54 @@
 <head>
   <title>Noah's Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     body {
       font-family: 'Merriweather', Georgia, serif;
-      background-color: #7a6e8c;
+      background: #7a6e8c;
       color: #1e1828;
-      padding: 24px 20px;
       margin: 0;
+      padding: 22px 18px;
     }
 
-    .page-wrapper {
+    .wrapper {
       max-width: 820px;
-      margin: 0 auto;
+      margin: auto;
     }
 
+    /* header */
     .site-header {
-      background-color: #b3a6c4;
+      background: #b3a6c4;
       border: 2px solid #5c5070;
-      border-radius: 18px;
-      box-shadow: 4px 4px 0px #5c5070;
-      padding: 8px 26px;
-      margin-bottom: 20px;
+      border-radius: 16px;
+      box-shadow: 3px 3px 0 #5c5070;
+      padding: 10px 24px;
+      margin-bottom: 18px;
+
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
     }
 
     .site-header h1 {
-      font-family: 'Inknut Antiqua', Georgia, serif;
+      font-family: 'Inknut Antiqua', serif;
       font-size: 2rem;
-      color: #1a1420;
       margin: 0;
     }
 
     .home-icon {
-      width: 50px;
-      height: 50px;
+      width: 48px;
+      height: 48px;
+      padding: 6px;
       border: 2px solid #5c5070;
-      border-radius: 12px;
-      box-shadow: 4px 4px 0px #5c5070;
-      padding: 5px;
-      text-decoration: none;
+      border-radius: 10px;
+      background: #b3a6c4;
+      box-shadow: 3px 3px 0 #5c5070;
       display: inline-block;
-      background-color: #b3a6c4;
     }
 
     .home-icon img {
@@ -53,285 +56,272 @@
       height: 100%;
     }
 
+    /* top section */
     .top-section {
       display: flex;
-      gap: 16px;
+      gap: 14px;
       margin-bottom: 20px;
     }
 
     .profile-photo {
-      width: 280px;
+      width: 270px;
       min-height: 300px;
-      border: 2px solid #5c5070;
-      border-radius: 18px;
-      box-shadow: 4px 4px 0px #5c5070;
       overflow: hidden;
-      flex-shrink: 0;
+      border: 2px solid #5c5070;
+      border-radius: 16px;
+      box-shadow: 3px 3px 0 #5c5070;
     }
 
     .profile-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
 
-    .right-cards {
+    .right-side {
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
 
-    .title-card {
-      background-color: #b3a6c4;
+    .box {
+      background: #b3a6c4;
       border: 2px solid #5c5070;
-      border-radius: 18px;
-      box-shadow: 4px 4px 0px #5c5070;
-      padding: 14px 20px;
+      border-radius: 16px;
+      box-shadow: 3px 3px 0 #5c5070;
+      padding: 14px 18px;
     }
 
-    .title-card h2 {
-      font-family: 'Inknut Antiqua', Georgia, serif;
+    .box h2 {
+      font-family: 'Inknut Antiqua', serif;
       font-size: 1.1rem;
-      color: #1a1420;
+      margin: 0 0 8px 0;
+    }
+
+    .box p {
+      font-size: 13px;
+      line-height: 1.6;
       margin: 0;
-      white-space: nowrap;
     }
 
-    .card {
-      background-color: #b3a6c4;
-      border: 2px solid #5c5070;
-      border-radius: 18px;
-      box-shadow: 4px 4px 0px #5c5070;
-      padding: 16px 20px;
-    }
-
-    .card h2 {
-      font-family: 'Inknut Antiqua', Georgia, serif;
-      font-size: 1.1rem;
-      color: #1a1420;
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
-
-    .card p {
+    .box ul {
       font-size: 13px;
       line-height: 1.7;
+      padding-left: 18px;
       margin: 0;
     }
 
-    .card ul {
-      font-size: 13px;
-      line-height: 1.8;
-      padding-left: 18px;
+    .title-box h2 {
       margin: 0;
+      white-space: nowrap;
     }
 
     .divider {
       border: none;
       border-top: 2px solid #5c5070;
-      width: 80%;
-      margin: 28px auto;
+      width: 75%;
+      margin: 26px auto;
     }
 
-    .projects-heading {
+    /* projects */
+    .projects-title {
       text-align: center;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
-    .projects-heading-box {
-      background-color: #b3a6c4;
+    .projects-title span {
+      background: #b3a6c4;
       border: 2px solid #5c5070;
-      border-radius: 12px;
-      box-shadow: 4px 4px 0px #5c5070;
-      padding: 10px 22px;
-      display: inline-block;
-    }
-
-    .projects-heading-box h2 {
-      font-family: 'Inknut Antiqua', Georgia, serif;
+      border-radius: 10px;
+      padding: 8px 20px;
+      box-shadow: 3px 3px 0 #5c5070;
+      font-family: 'Inknut Antiqua', serif;
       font-size: 1.3rem;
-      color: #1a1420;
-      margin: 0;
     }
 
-    .projects-grid {
+    .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 22px;
+      gap: 14px;
+      margin-bottom: 20px;
     }
 
-    .project-card {
-      background-color: #9d8faf;
+    .project {
+      background: #9d8faf;
       border: 2px solid #5c5070;
-      border-radius: 18px;
-      box-shadow: 4px 4px 0px #5c5070;
+      border-radius: 16px;
+      box-shadow: 3px 3px 0 #5c5070;
       overflow: hidden;
     }
 
-    .project-media {
-      width: 100%;
+    .media {
       height: 160px;
-      background-color: #8878a0;
+      background: #8878a0;
       overflow: hidden;
     }
 
-    .project-media img {
+    .media img,
+    .media video {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
 
-    .project-media video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+    .info {
+      padding: 12px 14px;
     }
 
-    .project-info {
-      padding: 14px 16px;
-    }
-
-    .project-info h3 {
-      font-family: 'Inknut Antiqua', Georgia, serif;
+    .info h3 {
+      font-family: 'Inknut Antiqua', serif;
       font-size: 0.95rem;
-      color: #1a1420;
-      margin-top: 0;
+      margin: 0 0 6px 0;
+    }
+
+    .info p {
+      font-size: 12px;
+      line-height: 1.5;
       margin-bottom: 8px;
     }
 
-    .project-info p {
-      font-size: 12px;
-      line-height: 1.6;
-      margin-bottom: 10px;
-    }
-
-    .project-info .meta {
+    .meta {
       font-size: 12px;
       color: #2a2035;
-      line-height: 1.8;
+      line-height: 1.6;
     }
 
-    .site-footer {
-      background-color: #9d8faf;
-      border: 2px solid #5c5070;
-      border-radius: 18px;
-      box-shadow: 4px 4px 0px #5c5070;
+    /* footer */
+    .footer {
       text-align: center;
-      padding: 6px 14px;
-      margin-top: 20px;
+      padding: 8px;
+      background: #9d8faf;
+      border: 2px solid #5c5070;
+      border-radius: 16px;
+      box-shadow: 3px 3px 0 #5c5070;
     }
 
-    .site-footer a {
-      font-family: 'Inknut Antiqua', Georgia, serif;
-      font-size: 1rem;
-      color: #1a1420;
+    .footer a {
       text-decoration: none;
+      font-family: 'Inknut Antiqua', serif;
+      color: #1a1420;
     }
 
-    .site-footer a:hover {
+    .footer a:hover {
       text-decoration: underline;
     }
   </style>
 </head>
+
 <body>
-  <div class="page-wrapper">
+  <div class="wrapper">
+
     <div class="site-header">
       <h1>Noah's Page</h1>
-      <a href="https://campnoa1.github.io/campnoah.github.io/" class="home-icon" title="Home">
-        <img src="home_icon.png" alt="Home" />
+      <a href="https://campnoa1.github.io/campnoah.github.io/" class="home-icon">
+        <img src="home_icon.png" alt="Home">
       </a>
     </div>
+
     <div class="top-section">
       <div class="profile-photo">
-        <img src="noah_pfp.jpg" alt="That's me!" />
+        <img src="noah_pfp.jpg" alt="That's me!">
       </div>
-      <div class="right-cards">
-        <div class="title-card">
+
+      <div class="right-side">
+
+        <div class="box title-box">
           <h2>Noah Camp - Game Developer Portfolio</h2>
         </div>
-        <div class="card">
+
+        <div class="box">
           <h2>About</h2>
           <p>
-            I am a 3D modeler and animator who is currently studying at Michigan State University (MSU) to be a part of the official game making world. I have worked on smaller game projects within the space of MSU to create prototype ideas, but would like to create fully fleshed out real ones in the near future.
+            I am a 3D modeler and animator currently studying at Michigan State University. I've worked on smaller game projects at MSU, mostly prototypes, but I’m aiming to create more complete and polished games in the near future.
           </p>
         </div>
-        <div class="card">
+
+        <div class="box">
           <h2>Skills</h2>
           <ul>
-            <li>3D Modeling Software: Blender, Maya</li>
-            <li>Texturing: Adobe Substance Painter</li>
-            <li>Additional Software: Adobe Photoshop, Adobe Illustrator, Adobe Premiere, Krita, Unity 6, Unreal 5</li>
-            <li>Techniques: UV Mapping, Texturing, Rigging, Animation</li>
+            <li>Blender, Maya</li>
+            <li>Substance Painter</li>
+            <li>Photoshop, Illustrator, Premiere, Krita</li>
+            <li>Unity 6, Unreal 5</li>
+            <li>UV Mapping, Rigging, Animation</li>
           </ul>
         </div>
+
       </div>
     </div>
-    <hr class="divider" />
-    <div class="projects-heading">
-      <div class="projects-heading-box">
-        <h2>Projects</h2>
-      </div>
+
+    <hr class="divider">
+
+    <div class="projects-title">
+      <span>Projects</span>
     </div>
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-media">
+
+    <div class="grid">
+
+      <div class="project">
+        <div class="media">
           <video src="Crane Simulation.mp4" controls></video>
         </div>
-        <div class="project-info">
+        <div class="info">
           <h3>Crane Simulation</h3>
           <p>
-            Contributions: 3D artist for all assets in world except the cargo ship. Worked in a small group of four to create a simulation game within two weeks.
+            3D artist for most assets (except the ship). Built with a team of four in about two weeks.
           </p>
           <div class="meta">
-            Platform: PC, VR<br />
-            Software: Unity 6, Blender
+            PC, VR<br>
+            Unity 6, Blender
           </div>
         </div>
       </div>
-      <div class="project-card">
-        <div class="project-media">
+
+      <div class="project">
+        <div class="media">
           <video src="Minecart Mayhem.mp4" controls></video>
         </div>
-        <div class="project-info">
+        <div class="info">
           <h3>Minecart Mayhem</h3>
           <p>
-            Contributions: Primary 3D artist for all interactive assets and most environmental assets. Worked in a small group of four to create an immersive game within four weeks.
+            Main 3D artist for interactive and environment assets. Team project over four weeks.
           </p>
           <div class="meta">
-            Platform: VR<br />
-            Software: Unity 6, Blender
+            VR<br>
+            Unity 6, Blender
           </div>
         </div>
       </div>
-      <div class="project-card">
-        <div class="project-media">
+
+      <div class="project">
+        <div class="media">
           <video src="ODS comp.mp4" controls></video>
         </div>
-        <div class="project-info">
+        <div class="info">
           <h3>Occult Defense System</h3>
           <p>
-            Contributions: Primary 3D artist for all ghost hunting locations. Worked in a small group of five to create a thrilling game within five weeks.
+            Created most ghost-hunting environments. Team of five, developed over five weeks.
           </p>
           <div class="meta">
-            Platform: PC, VR<br />
-            Software: Unity 6, Blender, Adobe Photoshop
+            PC, VR<br>
+            Unity 6, Blender, Photoshop
           </div>
         </div>
       </div>
-      <div class="project-card">
-        <div class="project-media"></div>
-        <div class="project-info">
+
+      <div class="project">
+        <div class="media"></div>
+        <div class="info">
           <h3>Coming Soon...</h3>
         </div>
       </div>
+
     </div>
-    <div class="site-footer">
+
+    <div class="footer">
       <a href="#">Links</a>
     </div>
+
   </div>
 </body>
