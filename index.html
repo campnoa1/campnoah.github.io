@@ -1,327 +1,365 @@
 <head>
-  <title>Noah's Portfolio</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-
+  <title>Noah's Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background-color: #7a6e8c;
+    }
+
     body {
       font-family: 'Merriweather', Georgia, serif;
-      background: #7a6e8c;
       color: #1e1828;
-      margin: 0;
-      padding: 22px 18px;
+      min-height: 100vh;
+      padding: 24px 20px 40px;
     }
 
-    .wrapper {
+    /* ── Outer wrapper: centers content ── */
+    .outer-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /*
+      Side border panels: fixed to the viewport, each fills the gap
+      between the screen edge and the content column.
+      The content column is max 860px centered, so each side panel
+      spans from the viewport edge to calc(50% - 430px).
+    */
+    .border-panel {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      background-color: #5c5070;
+      display: none; /* hidden until there is actual gap space */
+      z-index: 0;
+    }
+
+    .border-panel-left {
+      left: 0;
+      right: calc(50% + 430px - 20px + 10px); /* 10px gap before content */
+    }
+
+    .border-panel-right {
+      right: 0;
+      left: calc(50% + 430px - 20px + 10px); /* 10px gap before content */
+    }
+
+    /* Only show when viewport is wide enough that panels have real width */
+    @media (min-width: 940px) {
+      .border-panel { display: block; }
+    }
+
+    /* ── Inner page wrapper ── */
+    .page-wrapper {
       max-width: 820px;
-      margin: auto;
+      width: 100%;
+      margin: 0 auto;
+      overflow-x: hidden;
     }
 
-    /* header */
+    /* Header */
     .site-header {
-      background: #b3a6c4;
-      border: 2px solid #5c5070;
-      border-radius: 16px;
-      box-shadow: 3px 3px 0 #5c5070;
-      padding: 10px 24px;
-      margin-bottom: 18px;
-
+      background-color: #b3a6c4;
+      border: 2.5px solid #5c5070;
+      border-radius: 18px;
+      box-shadow: 4px 4px 0px #5c5070;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      padding: 6px 26px;
+      margin-bottom: 22px;
     }
 
     .site-header h1 {
-      font-family: 'Inknut Antiqua', serif;
-      font-size: 2rem;
-      margin: 0;
+      font-family: 'Inknut Antiqua', 'Palatino Linotype', Georgia, serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      color: #1a1420;
     }
 
     .home-icon {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
+      background-color: #b3a6c4;
+      border: 2.5px solid #5c5070;
+      border-radius: 12px;
+      box-shadow: 4px 4px 0px #5c5070;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      text-decoration: none;
+      appearance: none;
+      -webkit-appearance: none;
+      font: inherit;
       padding: 6px;
-      border: 2px solid #5c5070;
-      border-radius: 10px;
-      background: #b3a6c4;
-      box-shadow: 3px 3px 0 #5c5070;
-      display: inline-block;
+      overflow: hidden;
     }
 
-    .home-icon img {
+    .home-icon-img {
       width: 100%;
       height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
-    /* top section */
-    .top-section {
+    /* Bio section */
+    .bio-section {
       display: flex;
-      gap: 14px;
-      margin-bottom: 20px;
+      gap: 18px;
+      margin-bottom: 18px;
+      align-items: flex-start;
+      flex-wrap: wrap;
     }
 
     .profile-photo {
-      width: 270px;
-      min-height: 300px;
+      flex: 0 1 220px;
+      width: 100%;
+      max-width: 220px;
+      aspect-ratio: 220 / 300;
+      background-color: #b3a6c4;
+      border: 2.5px solid #5c5070;
+      border-radius: 18px;
+      box-shadow: 4px 4px 0px #5c5070;
       overflow: hidden;
-      border: 2px solid #5c5070;
-      border-radius: 16px;
-      box-shadow: 3px 3px 0 #5c5070;
     }
 
     .profile-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
-    .right-side {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .box {
-      background: #b3a6c4;
-      border: 2px solid #5c5070;
-      border-radius: 16px;
-      box-shadow: 3px 3px 0 #5c5070;
-      padding: 14px 18px;
-    }
-
-    .box h2 {
-      font-family: 'Inknut Antiqua', serif;
-      font-size: 1.1rem;
-      margin: 0 0 8px 0;
-    }
-
-    .box p {
-      font-size: 13px;
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    .box ul {
-      font-size: 13px;
-      line-height: 1.7;
-      padding-left: 18px;
-      margin: 0;
-    }
-
-    .title-box h2 {
-      margin: 0;
-      white-space: nowrap;
-    }
-
-    .divider {
-      border: none;
-      border-top: 2px solid #5c5070;
-      width: 75%;
-      margin: 26px auto;
-    }
-
-    /* projects */
-    .projects-title {
-      text-align: center;
-      margin-bottom: 14px;
-    }
-
-    .projects-title span {
-      background: #b3a6c4;
-      border: 2px solid #5c5070;
-      border-radius: 10px;
-      padding: 8px 20px;
-      box-shadow: 3px 3px 0 #5c5070;
-      font-family: 'Inknut Antiqua', serif;
-      font-size: 1.3rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-bottom: 20px;
-    }
-
-    .project {
-      background: #9d8faf;
-      border: 2px solid #5c5070;
-      border-radius: 16px;
-      box-shadow: 3px 3px 0 #5c5070;
-      overflow: hidden;
-    }
-
-    .media {
-      height: 160px;
-      background: #8878a0;
-      overflow: hidden;
-    }
-
-    .media img,
-    .media video {
+    .profile-photo-placeholder {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-    }
-
-    .info {
-      padding: 12px 14px;
-    }
-
-    .info h3 {
-      font-family: 'Inknut Antiqua', serif;
-      font-size: 0.95rem;
-      margin: 0 0 6px 0;
-    }
-
-    .info p {
-      font-size: 12px;
-      line-height: 1.5;
-      margin-bottom: 8px;
-    }
-
-    .meta {
-      font-size: 12px;
-      color: #2a2035;
-      line-height: 1.6;
-    }
-
-    /* footer */
-    .footer {
+      background-color: #a899bc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #5c5070;
+      font-size: 0.75rem;
       text-align: center;
-      padding: 8px;
-      background: #9d8faf;
-      border: 2px solid #5c5070;
-      border-radius: 16px;
-      box-shadow: 3px 3px 0 #5c5070;
+      padding: 12px;
     }
 
-    .footer a {
-      text-decoration: none;
-      font-family: 'Inknut Antiqua', serif;
+    .bio-cards {
+      flex: 1 1 200px;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* Cards */
+    .card {
+      background-color: #b3a6c4;
+      border: 2.5px solid #5c5070;
+      border-radius: 18px;
+      box-shadow: 4px 4px 0px #5c5070;
+      padding: 18px 20px;
+    }
+
+    .card h2 {
+      font-family: 'Inknut Antiqua', 'Palatino Linotype', Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
       color: #1a1420;
     }
 
-    .footer a:hover {
+    .card p {
+      font-size: 0.82rem;
+      line-height: 1.7;
+    }
+
+    /* Games heading */
+    .games-heading {
+      background-color: #b3a6c4;
+      border: 2.5px solid #5c5070;
+      border-radius: 12px;
+      box-shadow: 4px 4px 0px #5c5070;
+      display: inline-block;
+      padding: 10px 20px;
+      margin-bottom: 14px;
+    }
+
+    .games-heading h2 {
+      font-family: 'Inknut Antiqua', 'Palatino Linotype', Georgia, serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1a1420;
+    }
+
+    /* Games list card */
+    .games-card {
+      background-color: #9d8faf;
+      border: 2.5px solid #5c5070;
+      border-radius: 18px;
+      box-shadow: 4px 4px 0px #5c5070;
+      padding: 22px 26px;
+    }
+
+    .game-entry {
+      margin-bottom: 20px;
+    }
+
+    .game-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .game-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #1a1420;
+    }
+
+    .game-desc {
+      font-size: 0.8rem;
+      line-height: 1.7;
+      text-indent: 2em;
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: #9d8faf;
+      border: 2.5px solid #5c5070;
+      border-radius: 18px;
+      box-shadow: 4px 4px 0px #5c5070;
+      text-align: center;
+      padding: 5px 14px;
+      margin-top: 22px;
+    }
+
+    .site-footer a {
+      font-family: 'Inknut Antiqua', 'Palatino Linotype', Georgia, serif;
+      font-size: 1rem;
+      color: #1a1420;
+      text-decoration: none;
+    }
+
+    .site-footer a:hover {
       text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 620px) {
+      .bio-section {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .profile-photo {
+        max-width: 100%;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+      }
+
+      .bio-cards {
+        width: 100%;
+      }
+
+      .site-header h1 {
+        font-size: 1.4rem;
+      }
+
+      .home-icon {
+        width: 42px;
+        height: 42px;
+      }
     }
   </style>
 </head>
-
 <body>
-  <div class="wrapper">
 
-    <div class="site-header">
-      <h1>Noah's Page</h1>
-      <a href="https://campnoa1.github.io/campnoah.github.io/" class="home-icon">
-        <img src="home_icon.png" alt="Home">
-      </a>
-    </div>
+  <!-- Outer wrapper with the two side border strips -->
+  <div class="outer-wrapper">
+  <!-- Fixed side border panels (screen edge → content edge) -->
+  <div class="border-panel border-panel-left"></div>
+  <div class="border-panel border-panel-right"></div>
 
-    <div class="top-section">
-      <div class="profile-photo">
-        <img src="noah_pfp.jpg" alt="That's me!">
-      </div>
+    <div class="page-wrapper">
 
-      <div class="right-side">
+      <!-- Header -->
+      <header class="site-header">
+        <h1>Noah's Page</h1>
+        <a href="https://campnoa1.github.io/campnoah.github.io/" class="home-icon" title="Home">
+          <img src="home_icon.png" alt="Home" class="home-icon-img">
+        </a>
+      </header>
 
-        <div class="box title-box">
-          <h2>Noah Camp - Game Developer Portfolio</h2>
+      <!-- Bio -->
+      <section class="bio-section">
+        <div class="profile-photo">
+          <img src="noah_pfp.jpg" alt="That's me!">
         </div>
 
-        <div class="box">
-          <h2>About</h2>
-          <p>
-            I am a 3D modeler and animator currently studying at Michigan State University. I've worked on smaller game projects at MSU, mostly prototypes, but I’m aiming to create more complete and polished games in the near future.
-          </p>
-        </div>
+        <div class="bio-cards">
+          <div class="card">
+            <h2>Bio</h2>
+            <p>I am a student of Michigan State University(MSU) studying how to become a modeler and animator so that one day I can be a part of the game making process. I've always both admired and loved games since I can remember. This would explain why I want to be a part of this process.</p>
+          </div>
 
-        <div class="box">
-          <h2>Skills</h2>
-          <ul>
-            <li>Blender, Maya</li>
-            <li>Substance Painter</li>
-            <li>Photoshop, Illustrator, Premiere, Krita</li>
-            <li>Unity 6, Unreal 5</li>
-            <li>UV Mapping, Rigging, Animation</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-
-    <hr class="divider">
-
-    <div class="projects-title">
-      <span>Projects</span>
-    </div>
-
-    <div class="grid">
-
-      <div class="project">
-        <div class="media">
-          <video src="Crane Simulation.mp4" controls></video>
-        </div>
-        <div class="info">
-          <h3>Crane Simulation</h3>
-          <p>
-            3D artist for most assets (except the ship). Built with a team of four in about two weeks.
-          </p>
-          <div class="meta">
-            PC, VR<br>
-            Unity 6, Blender
+          <div class="card">
+            <h2>My Favorite Video Games OAT</h2>
+            <p>To start, THIS IS MY OPNINION (LOL)! I'm sure my favorite games will change in the future as I constantly seem to have different favorites based on how recently I played each. That said, I do not neccessarily have much nostalgia when it comes to games. This is because I know that newer games tend to iterate upon past games. An example of this is Palworld having the Pokemon mechanics while also introducing a plethora of modern game mechanics. But, with that said, some games from the past really are great or have some things that grealty set them apart from other games. This would be something like Plants vs Zombies having a near perfect formula while also having a very hard time replicating what makes it so great without making a new game and it bringing in new concepts that ruin the game.</p>
           </div>
         </div>
+      </section>
+
+      <!-- Games section -->
+      <div class="games-heading">
+        <h2>The Games</h2>
       </div>
 
-      <div class="project">
-        <div class="media">
-          <video src="Minecart Mayhem.mp4" controls></video>
+      <div class="games-card">
+
+        <div class="game-entry">
+          <div class="game-title">5. Terraria</div>
+          <p class="game-desc">Let's start at the bottom, number five. Terraria is a very fun game about discovering a newly generated world and fighting tough enemies and bosses. Terraria released years ago back in 2011 which has continuously stayed relevant and has been updated over the years with each update bringing large content updates spicing up the game to a pretty decent degree. It is a very easily repayable game and is fun for both sandbox builders and pve focused players. Terraria also is kept alive with its modding community providing insane amounts of new and refreshing content to the game sometimes making the game feel entirely different from its original make.</p>
         </div>
-        <div class="info">
-          <h3>Minecart Mayhem</h3>
-          <p>
-            Main 3D artist for interactive and environment assets. Team project over four weeks.
-          </p>
-          <div class="meta">
-            VR<br>
-            Unity 6, Blender
-          </div>
+
+        <div class="game-entry">
+          <div class="game-title">4. Return of the Obra Dinn</div>
+          <p class="game-desc">At four is Return of the Obra Dinn. This game was created by the same developer(s?) of Papers Please which is pretty obvious when comparing their art styles. Return of the Obra Dinn is a detective game where the player must figure out what happened to a ship (the Obra Dinn) returning to port with its crew missing. The tasks of the player are to find missing key information about each character and how they went missing. Return of the Obra Dinn is at number four for being so unique and having such a fun and interesting story.</p>
         </div>
+
+        <div class="game-entry">
+          <div class="game-title">3. Baldur's Gate III</div>
+          <p class="game-desc">Number three is Baldur's Gate III. Baldur's Gate III is a continued story of Baldur's Gate where the player is in an alien ship then later going on an adventure to save the world in a D&D type of play style. This game is without question in my top five and will probably remain their for many years. It was fun the first time and will continue to be afterword.</p>
+        </div>
+
+        <div class="game-entry">
+          <div class="game-title">2. Abiotic Factor</div>
+          <p class="game-desc">At two is lesser known game called Abiotic Factor. Abiotic Factor is a Half Life and SCP inspired game that takes on a sandbox genre. The player is tasked with trying to escape the facility that is falling apart while trying to figure out why it is happening at all. Now, SCP has some of my favorite internet stories as well as it iterating upon Half Life... why wouldn't I love this game! I have spent so much time playing this game and still do playing each new update. My friends and I have had multiple play sessions of this game (which never happens with a game for us). Although, I have heard that Abiotic Factor has literally ruined friendships... Play at your own risk.</p>
+        </div>
+
+        <div class="game-entry">
+          <div class="game-title">1. Sekiro: Shadows Die Twice</div>
+          <p class="game-desc">And lastly at one is Sekiro: Shadows Die Twice. Ever since I played this I knew it would be my favorite. In this game you play as Sekiro, a shinobi, attempting to save his Lord, Kuro, in any way that he can. But before that he must go to his Lord and then find the path to saving him. I love this game so much. It is a yearly play for me. I hardly have any gripes with this game. I just love the world, the characters, the enemies, and the soundtrack (although nothing revolutionary for a From Software game). This game is so much fun each time and it even got a boss rush gamemode that was added a few years ago to allow players to fight all the bosses consecutively. I hardly believe that any game will beat this game on my list. I do forsee a future where Abiotic Factor does beat Sekiro, though.</p>
+        </div>
+
       </div>
 
-      <div class="project">
-        <div class="media">
-          <video src="ODS comp.mp4" controls></video>
-        </div>
-        <div class="info">
-          <h3>Occult Defense System</h3>
-          <p>
-            Created most ghost-hunting environments. Team of five, developed over five weeks.
-          </p>
-          <div class="meta">
-            PC, VR<br>
-            Unity 6, Blender, Photoshop
-          </div>
-        </div>
-      </div>
+      <!-- Footer -->
+      <footer class="site-footer">
+        <a href="#">Links</a>
+      </footer>
 
-      <div class="project">
-        <div class="media"></div>
-        <div class="info">
-          <h3>Coming Soon...</h3>
-        </div>
-      </div>
+    </div><!-- /.page-wrapper -->
+  </div><!-- /.outer-wrapper -->
 
-    </div>
-
-    <div class="footer">
-      <a href="#">Links</a>
-    </div>
-
-  </div>
 </body>
+</html>
