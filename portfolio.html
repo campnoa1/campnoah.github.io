@@ -273,11 +273,22 @@
     }
 
     .project-image {
+      position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
       background-color: #8878a0;
       flex-shrink: 0;
       overflow: hidden;
+    }
+
+    .project-image iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
     }
 
     .project-image img {
@@ -426,16 +437,20 @@
 
       </section>
 
+      <hr style="border: none; border-top: 2.5px solid #5c5070; margin: 30px auto; width: 80%;">
+
       <!-- Projects -->
-      <div class="projects-heading">
-        <h2>Projects</h2>
+      <div style="text-align: center; margin-bottom: 14px;">
+        <div class="projects-heading" style="margin-bottom: 0;">
+          <h2>Projects</h2>
+        </div>
       </div>
 
       <div class="projects-grid">
 
         <div class="project-card">
           <div class="project-image">
-            <img src="crane_sim.jpg" alt="Crane Simulation" onerror="this.style.display='none';">
+            <iframe src="https://www.youtube.com/watch?v=4Te5-pbH95M" allowfullscreen></iframe>
           </div>
           <div class="project-body">
             <div class="project-title">Crane Simulation</div>
@@ -449,7 +464,7 @@
 
         <div class="project-card">
           <div class="project-image">
-            <img src="minecart.jpg" alt="Minecart Mayhem" onerror="this.style.display='none';">
+            <iframe src="https://www.youtube.com/watch?v=JN5EXVheQVo" allowfullscreen></iframe>
           </div>
           <div class="project-body">
             <div class="project-title">Minecart Mayhem</div>
@@ -463,7 +478,7 @@
 
         <div class="project-card">
           <div class="project-image">
-            <img src="occult.jpg" alt="Occult Defense System" onerror="this.style.display='none';">
+            <iframe src="https://drive.google.com/file/d/1WK6Dw4OtuBGMpjjwOcTu73yZRBK4dfEh/view?usp=sharing" allowfullscreen></iframe>
           </div>
           <div class="project-body">
             <div class="project-title">Occult Defense System</div>
@@ -476,7 +491,10 @@
         </div>
 
         <div class="project-card">
-          <div class="project-image project-image-placeholder"></div>
+          <div class="project-image project-image-placeholder">
+            <!-- To embed a video, replace this div's contents with:
+                 <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe> -->
+          </div>
           <div class="project-body">
             <div class="project-title">Coming Soon...</div>
             <p class="project-contributions"></p>
