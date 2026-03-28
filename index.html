@@ -21,31 +21,41 @@
       padding: 24px 20px 40px;
     }
 
-    /* ── Outer wrapper: holds the two side borders + content ── */
+    /* ── Outer wrapper: centers content ── */
     .outer-wrapper {
-      max-width: 900px; /* a bit wider than the content to leave room for borders */
+      max-width: 860px;
       margin: 0 auto;
       position: relative;
     }
 
-    /* The two vertical border strips */
-    .border-strip {
-      position: absolute;
+    /*
+      Side border panels: fixed to the viewport, each fills the gap
+      between the screen edge and the content column.
+      The content column is max 860px centered, so each side panel
+      spans from the viewport edge to calc(50% - 430px).
+    */
+    .border-panel {
+      position: fixed;
       top: 0;
       bottom: 0;
-      width: 6px;
       background-color: #5c5070;
-      border-radius: 4px;
-      /* Hidden by default; shown only when there's room (see media query below) */
-      display: none;
+      display: none; /* hidden until there is actual gap space */
+      z-index: 0;
     }
 
-    .border-strip-left  { left: 0; }
-    .border-strip-right { right: 0; }
+    .border-panel-left {
+      left: 0;
+      right: calc(50% + 430px - 20px + 10px); /* 10px gap before content */
+    }
 
-    /* Show the strips only when viewport is wide enough that they don't overlap content */
-    @media (min-width: 900px) {
-      .border-strip { display: block; }
+    .border-panel-right {
+      right: 0;
+      left: calc(50% + 430px - 20px + 10px); /* 10px gap before content */
+    }
+
+    /* Only show when viewport is wide enough that panels have real width */
+    @media (min-width: 940px) {
+      .border-panel { display: block; }
     }
 
     /* ── Inner page wrapper ── */
@@ -276,8 +286,9 @@
 
   <!-- Outer wrapper with the two side border strips -->
   <div class="outer-wrapper">
-    <div class="border-strip border-strip-left"></div>
-    <div class="border-strip border-strip-right"></div>
+  <!-- Fixed side border panels (screen edge → content edge) -->
+  <div class="border-panel border-panel-left"></div>
+  <div class="border-panel border-panel-right"></div>
 
     <div class="page-wrapper">
 
