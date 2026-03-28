@@ -21,44 +21,35 @@
       padding: 24px 20px 40px;
     }
 
-    /* ── Outer wrapper: centers content ── */
     .outer-wrapper {
       max-width: 860px;
       margin: 0 auto;
       position: relative;
     }
 
-    /*
-      Side border panels: fixed to the viewport, each fills the gap
-      between the screen edge and the content column.
-      The content column is max 860px centered, so each side panel
-      spans from the viewport edge to calc(50% - 430px).
-    */
     .border-panel {
       position: fixed;
       top: 0;
       bottom: 0;
       background-color: #5c5070;
-      display: none; /* hidden until there is actual gap space */
+      display: none;
       z-index: 0;
     }
 
     .border-panel-left {
       left: 0;
-      right: calc(50% + 430px - 20px + 10px); /* 10px gap before content */
+      right: calc(50% + 430px - 20px + 10px);
     }
 
     .border-panel-right {
       right: 0;
-      left: calc(50% + 430px - 20px + 10px); /* 10px gap before content */
+      left: calc(50% + 430px - 20px + 10px);
     }
 
-    /* Only show when viewport is wide enough that panels have real width */
     @media (min-width: 940px) {
       .border-panel { display: block; }
     }
 
-    /* ── Inner page wrapper ── */
     .page-wrapper {
       max-width: 820px;
       width: 100%;
@@ -284,9 +275,7 @@
 </head>
 <body>
 
-  <!-- Outer wrapper with the two side border strips -->
   <div class="outer-wrapper">
-  <!-- Fixed side border panels (screen edge → content edge) -->
   <div class="border-panel border-panel-left"></div>
   <div class="border-panel border-panel-right"></div>
 
@@ -358,8 +347,8 @@
         <a href="#">Links</a>
       </footer>
 
-    </div><!-- /.page-wrapper -->
-  </div><!-- /.outer-wrapper -->
+    </div>
+  </div>
 
 </body>
 </html>
